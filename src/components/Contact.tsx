@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, MessageSquare, Send, Calendar } from 'lucide-react';
 
 const Contact = () => {
@@ -12,17 +11,43 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    alert('Thank you! We\'ll get back to you within 24 hours.');
-    setFormData({ name: '', email: '', clinicName: '', requirements: '', phone: '' });
-    setIsSubmitting(false);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/navnitrai5389@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          clinicName: formData.clinicName,
+          phone: formData.phone,
+          requirements: formData.requirements,
+          _subject: 'New Contact Form Submission',
+          _template: 'table'
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', clinicName: '', requirements: '', phone: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,12 +60,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-slate-50 relative min-h-screen flex items-center justify-center overflow-hidden px-1 sm:px-2">
       <div className="max-w-7xl mx-auto px-3">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
             Ready to{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">
@@ -52,19 +72,26 @@ const Contact = () => {
             Let's discuss how we can help digitize your healthcare practice. 
             Get a free consultation and project estimate.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white rounded-3xl p-8 shadow-sm"
-          >
+          <div className="bg-white rounded-3xl p-8 shadow-sm">
             <h3 className="text-2xl font-bold text-slate-800 mb-6">
               Get Your Free Consultation
             </h3>
+
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-100 text-green-800 rounded-lg">
+                Thank you! We'll get back to you within 2 hours.
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-100 text-red-800 rounded-lg">
+                Something went wrong. Please try again or contact us directly.
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -145,11 +172,9 @@ const Contact = () => {
                 </label>
               </div>
 
-              <motion.button
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 className="w-full bg-teal-600 text-white py-4 rounded-xl font-semibold hover:bg-teal-700 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
@@ -163,17 +188,12 @@ const Contact = () => {
                     <span>Send Message</span>
                   </>
                 )}
-              </motion.button>
+              </button>
             </form>
-          </motion.div>
+          </div>
 
           {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             {/* Quick Contact */}
             <div className="bg-white rounded-3xl p-8 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-800 mb-6">
@@ -218,15 +238,12 @@ const Contact = () => {
                   <div>
                     <div className="font-semibold text-slate-800">Address</div>
                     <div className="text-slate-600">
-                      
                       Khadda, Uttar Pradesh 274802
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-           
 
             {/* Response Time */}
             <div className="bg-slate-100 rounded-2xl p-6 text-center">
@@ -237,7 +254,7 @@ const Contact = () => {
                 We respond to all inquiries within 2 hours during business hours
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

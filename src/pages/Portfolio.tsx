@@ -67,10 +67,10 @@ const Portfolio = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {[
-              { number: '50+', label: 'Projects Completed' },
-              { number: '98%', label: 'Client Satisfaction' },
+              { number: '12+', label: 'Projects Completed' },
+              { number: '100%', label: 'Client Satisfaction' },
               { number: '25+', label: 'Healthcare Clients' },
-              { number: '3', label: 'Years Experience' }
+              { number: '2', label: 'Years Experience' }
             ].map((stat, index) => (
               <motion.div
                 key={index}

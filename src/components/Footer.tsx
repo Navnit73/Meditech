@@ -6,14 +6,7 @@ import { Stethoscope, Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from '
 const Footer = () => {
   const footerLinks = {
    
-    'Company': [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Team', href: '/team' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Case Studies', href: '/case-studies' },
-      { name: 'Contact', href: '/contact' }
-    ],
+  
     'Legal': [
       { name: 'Privacy Policy', href: '/privacy-policy' },
       { name: 'Terms of Service', href: '/terms-of-service' },
@@ -46,15 +39,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-start sm:items-center space-x-3">
                 <Mail className="text-teal-400 mt-1 sm:mt-0" size={16} />
-                <span className="text-slate-300 text-sm sm:text-base">hello@meditechsolutions.com</span>
+                <span className="text-slate-300 text-sm sm:text-base">navnitrai5389@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="text-teal-400" size={16} />
-                <span className="text-slate-300 text-sm sm:text-base">+91 98765 43210</span>
+                <span className="text-slate-300 text-sm sm:text-base">+91 7355087072</span>
               </div>
               <div className="flex items-start sm:items-center space-x-3">
                 <MapPin className="text-teal-400 mt-1 sm:mt-0" size={16} />
-                <span className="text-slate-300 text-sm sm:text-base">Bangalore, Karnataka</span>
+                <span className="text-slate-300 text-sm sm:text-base">Khadda, Uttar Pradesh 274802</span>
               </div>
             </div>
           </div>

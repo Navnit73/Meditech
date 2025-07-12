@@ -30,7 +30,7 @@ const reasons = [
   {
     icon: Clock,
     title: 'Proven Track Record',
-    description: 'Over 50 successful healthcare projects with 98% client satisfaction rate.',
+    description: 'Over 12 successful healthcare projects with 98% client satisfaction rate.',
     color: 'from-emerald-500 to-emerald-600'
   }
 ];
@@ -92,8 +92,8 @@ const WhyChooseUs = () => {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: '50+', label: 'Healthcare Projects' },
-              { number: '98%', label: 'Client Satisfaction' },
+              { number: '12', label: 'Healthcare Projects' },
+              { number: '100%', label: 'Client Satisfaction' },
               { number: '24/7', label: 'Support Available' },
               { number: '4-8', label: 'Weeks Delivery' }
             ].map((stat, index) => (

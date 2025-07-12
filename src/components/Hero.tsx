@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Calendar, Shield, Clock, Activity, CheckCircle } from "lucide-react";
+import Lottie from "lottie-react";
+import Developer from "../assets/Developer.json"; // Replace with your Lottie file
 
 const Hero = () => {
   return (
@@ -101,67 +103,28 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Content - Illustration */}
+        {/* Right Content - Lottie Animation */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative"
+          className="relative flex items-center justify-center"
         >
-          <div className="relative bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl p-8 shadow-2xl overflow-hidden hidden sm:block">
-            {/* Floating elements in the card */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-white/10"></div>
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/5"></div>
-            
-            <div className="relative bg-white rounded-2xl p-6 mb-6 shadow-md">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-              </div>
-              <div className="space-y-3">
-                <div className="h-4 bg-slate-200 rounded w-3/4"></div>
-                <div className="h-4 bg-slate-200 rounded w-1/2"></div>
-                <div className="h-4 bg-teal-200 rounded w-2/3"></div>
-                <div className="h-4 bg-slate-200 rounded w-5/6 mt-4"></div>
-                <div className="h-4 bg-slate-200 rounded w-3/4"></div>
-              </div>
-              
-              {/* Progress bar */}
-              <div className="mt-6 bg-slate-100 rounded-full h-2">
-                <div className="bg-teal-500 h-2 rounded-full w-3/4"></div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center transition-transform hover:scale-105">
-                <div className="bg-white/30 p-3 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                  <Calendar className="text-white" size={20} />
-                </div>
-                <div className="text-white text-sm font-medium">
-                  Appointment Scheduling
-                </div>
-                <div className="text-white/80 text-xs mt-1">Real-time availability</div>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center transition-transform hover:scale-105">
-                <div className="bg-white/30 p-3 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                  <Shield className="text-white" size={20} />
-                </div>
-                <div className="text-white text-sm font-medium">
-                  Secure Patient Portal
-                </div>
-                <div className="text-white/80 text-xs mt-1">HIPAA compliant</div>
-              </div>
-            </div>
+          <div className="w-full max-w-lg">
+            <Lottie 
+              animationData={Developer} 
+              loop={true}
+              style={{ width: '100%', height: 'auto' }}
+            />
           </div>
 
           {/* Floating Cards */}
           <motion.div
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-6 -right-6 bg-white rounded-xl shadow-lg p-4 border border-slate-100 hidden sm:block"
+            className="absolute top-0 right-0 bg-white rounded-xl shadow-lg p-4 border border-slate-100 hidden sm:block"
           >
-            <div className="flex items-center space-x-2 ">
+            <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-slate-700">
                 System Online
@@ -172,7 +135,7 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4 border border-slate-100 w-40 hidden sm:block"
+            className="absolute bottom-0 left-0 bg-white rounded-xl shadow-lg p-4 border border-slate-100 w-40 hidden sm:block"
           >
             <div className="text-xs text-slate-500 mb-1">Active Users</div>
             <div className="flex justify-between items-center">

@@ -7,7 +7,7 @@ const testimonials = [
     name: 'Dr. Aditi Mehta',
     role: 'Dental Surgeon',
     clinic: 'SmileCare Dental Clinic',
-    image: 'https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=300',
+    image: 'https://images.pexels.com/photos/8459997/pexels-photo-8459997.jpeg',
     rating: 5,
     text: 'The team truly understood the day-to-day issues we face in small clinics. Our patient queue management has never been smoother! The EMR system they built is intuitive and saves us hours every day.',
     location: 'Mumbai, India'
@@ -16,7 +16,7 @@ const testimonials = [
     name: 'Dr. Rajesh Kumar',
     role: 'Pathologist',
     clinic: 'Advanced Diagnostics Lab',
-    image: 'https://images.pexels.com/photos/6749778/pexels-photo-6749778.jpeg?auto=compress&cs=tinysrgb&w=300',
+    image: 'https://images.pexels.com/photos/6234600/pexels-photo-6234600.jpeg',
     rating: 5,
     text: 'The automated report generation system has revolutionized our lab operations. What used to take hours now takes minutes. Our patients receive results faster and our staff can focus on quality control.',
     location: 'Delhi, India'
@@ -25,7 +25,7 @@ const testimonials = [
     name: 'Dr. Priya Sharma',
     role: 'General Physician',
     clinic: 'HealthFirst Clinic',
-    image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=300',
+    image: 'https://images.pexels.com/photos/15752232/pexels-photo-15752232.jpeg',
     rating: 5,
     text: 'As a solo practitioner, I needed something simple yet powerful. The patient portal they developed has improved communication with my patients tremendously. Highly recommended for small practices!',
     location: 'Bangalore, India'
@@ -34,7 +34,7 @@ const testimonials = [
     name: 'Dr. Amit Patel',
     role: 'Orthopedic Surgeon',
     clinic: 'BoneHealth Specialty Center',
-    image: 'https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=300',
+    image: 'https://images.pexels.com/photos/6129648/pexels-photo-6129648.jpeg',
     rating: 5,
     text: 'The appointment scheduling system has reduced our no-shows by 60%. The WhatsApp integration for reminders is brilliant. Our patients love the convenience and we love the efficiency.',
     location: 'Pune, India'
